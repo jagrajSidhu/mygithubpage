@@ -1,0 +1,389 @@
+<html> <!--starting of html-->
+	<head><!--starting of head-->
+		<title>eExhibition</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		body {
+	margin: 0;
+	padding: 0;
+	line-height: 1.5em;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+		
+
+#container{
+	width: 980px;
+	margin: 0 auto;
+	padding: 0px 0px 0px 0px;
+}
+#header {
+	width: 980px;
+	height: 85px;
+	padding: 0 0px;
+	background: url(./header.png) no-repeat;
+}
+ #title {
+	padding: 40px 0px 40px 30px;
+	font-size: 40px;
+    color: #ffffff;
+	font-weight: normal;
+    font-family:cursive;
+}
+
+#banner {
+    width: 980px;
+	height: 95px;
+    margin-top:-4px;
+    background: url(./header.png) no-repeat;
+}
+
+
+#menu {
+	clear: both;
+	width: 980px;
+	height: 65px;
+	background: url(./menu.png) no-repeat;
+}
+
+
+#menu ul {
+	margin: 0px;
+	padding: 10px 0 0px 15px;
+	list-style: none;
+}
+
+#menu ul li{
+	display: inline;
+}
+
+#menu ul li a{
+	float: left;
+	padding: 12px 0 0 0;
+	width: 135px;
+	height: 27px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	color: #FFF;
+	outline: none;
+}
+
+#menu li a.current
+{
+background:url(./color1.gif);
+color:white;
+} 
+
+
+ #leftside {
+ font-size: 13px;
+	color: #FC0;
+	font-weight: bold;	
+	text-decoration: none;
+ float:left ;
+width:63%;
+
+}
+#rightside {
+ float:right;
+ width:37%;
+ font-size: 20px;
+ font-family:"Times New Roman", Georgia, Serif;
+	color: #99CC66;
+	font-weight: bold;	
+	text-decoration: none;
+ 
+ 
+ }
+ 
+
+
+#content_area1 {
+	clear: both;
+	width: 970px;
+    min-height: 400px;
+	padding: 0px 00px 0px 00px;
+	background: url(./panel.png) repeat-y;	
+}
+
+
+
+#slider {
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto 0 auto;
+  border-radius: 4px;
+
+}
+
+#slider ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 400px;
+  list-style: none;
+}
+
+#slider ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  height: 350px;
+  background: #ccc;
+  text-align: center;
+  line-height: 300px;
+}
+
+a.control_prev, a.control_next {
+  position: absolute;
+  top: 40%;
+  z-index: 999;
+  display: block;
+  padding: 4% 3%;
+  width: auto;
+  height: auto;
+  background: black; 
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+a.control_prev:hover, a.control_next:hover {
+  opacity: 1;
+  -webkit-transition: all 0.2s ease;
+}
+
+a.control_prev {
+  border-radius: 0 2px 2px 0;
+}
+
+a.control_next {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+.slider_option {
+  position: relative;
+  margin: 10px auto;
+  width: 300px;
+  font-size: 18px;
+}
+
+
+
+
+#footer {
+	clear: both;
+	color: #ffffff;
+	width: 960px;
+	height: 60px;
+	padding: 30px 10px 0 10px;
+	text-align: center;
+	background: url(./footer.png) no-repeat;
+}
+
+#ContactLeft 
+{
+
+float:left ;
+width:50%;
+padding:40px 0px 0px 40px;
+font-size: 18px;
+ font-family:"Times New Roman", Georgia, Serif;
+	color: white;
+	font-weight: bold;	
+	text-decoration: none;
+}
+#AboutUsLeft 
+{
+
+float:left ;
+width:50%;
+padding:40px 0px 0px 40px;
+font-size: 16px;
+ font-family:"Times New Roman", Georgia, Serif;
+	color: white;
+	font-weight: bold;	
+	text-decoration: none;
+}
+#ContactRight 
+{
+    float:right ;
+    width:40%;
+    padding:50px 0px 0px 0px;
+
+
+}
+#ContactForm
+{
+    font-size: 18px;
+    font-family:"Times New Roman", Georgia, Serif;
+	color: white;
+	font-weight: bold;	
+	text-decoration: none;
+    }
+#ContactForm1
+{
+    font-size: 18px;
+    font-family:"Times New Roman", Georgia, Serif;
+	color: white;
+	font-weight: bold;	
+	text-decoration: none;
+    }
+table, th, td {
+
+    padding: 5px;
+}
+
+
+		<style type="text/css" >
+		
+		</style>
+		<script type="text/javascript" >
+		
+		jQuery(document).ready(function () {
+
+  $('#checkbox').change(function(){
+    setInterval(function () {
+        moveRight();
+    }, 3000);
+  });
+  
+	var slideCount = $('#slider ul li').length;
+	var slideWidth = $('#slider ul li').width();
+	var slideHeight = $('#slider ul li').height();
+	var sliderUlWidth = slideCount * slideWidth;
+	
+	$('#slider').css({ width: slideWidth, height: slideHeight });
+	
+	$('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+	
+    $('#slider ul li:last-child').prependTo('#slider ul');
+
+    function moveLeft() {
+        $('#slider ul').animate({
+            left: + slideWidth
+        }, 200, function () {
+            $('#slider ul li:last-child').prependTo('#slider ul');
+            $('#slider ul').css('left', '');
+        });
+    };
+
+    function moveRight() {
+        $('#slider ul').animate({
+            left: - slideWidth
+        }, 200, function () {
+            $('#slider ul li:first-child').appendTo('#slider ul');
+            $('#slider ul').css('left', '');
+        });
+    };
+
+    $('a.control_prev').click(function () {
+        moveLeft();
+    });
+
+    $('a.control_next').click(function () {
+        moveRight();
+    });
+
+});    
+
+		
+		</script>
+			
+              
+        
+	</head><!--end of head-->
+
+	<body>
+	<div id="container">
+
+	    <div id="header">
+	    <div id="title">oNLiNE eXhIbItiOn</div>
+	    </div> 
+        
+        <div id="banner">
+
+            <marquee  behavior="alternate"  >
+                                  <img src="${pageContext.request.contextPath}/images/12.jpg" width="200px" height="95px"/>
+                                 <img src="${pageContext.request.contextPath}/images/14.jpg"  width="200px" height="95px"/>
+                                 <img src="${pageContext.request.contextPath}/images/15.jpg"  width="200px" height="95px"/>
+                                 <img src="${pageContext.request.contextPath}/images/16.jpg"  width="200px" height="95px"/>
+                                  <img src="${pageContext.request.contextPath}/images/1.jpg"  width="200px" height="95px"/>
+                                  <img src="${pageContext.request.contextPath}/images/aboutUsPic.jpg"  width="200px" height="95px"/>
+                                  <img src="${pageContext.request.contextPath}/images/13.jpg"  width="200px" height="95px"/> 
+                             </marquee>
+        </div>
+		    <div id="menu">
+			    <ul>
+				    <li><a class="current"  href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
+				    <li><a href="${pageContext.request.contextPath}/AboutUs.jsp">About us</a></li>
+				    <li><a  href="${pageContext.request.contextPath}/Gallery.jsp">Gallery</a></li>
+				    <li><a  href="${pageContext.request.contextPath}/Services.jsp">Services</a></li>
+				    <li><a  href="${pageContext.request.contextPath}/Events.jsp">Events</a></li>
+				    <li><a  href="${pageContext.request.contextPath}/ContactUs.jsp">Contact Us</a></li>
+			        <li><a  href="${pageContext.request.contextPath}/BusinessContacts.jsp">Business contacts</a></li>
+			    </ul>
+    
+		    </div> 
+  
+            <div id="content_area1">
+			    <div id="leftside">
+				   
+                     <div id="slider">
+					    <a href="#" class="control_next"></a>
+					    <a href="#" class="control_prev"></a>
+						    <ul>				 
+							    <li><img src="${pageContext.request.contextPath}/images/16.jpg"></li>
+                                <li><img src="${pageContext.request.contextPath}/images/12.jpg"></li>
+							    <li><a href="page2.html"><img src="${pageContext.request.contextPath}/images/14.jpg"></a></li>
+							    <li ><a href="page2.html"><img src="${pageContext.request.contextPath}/images/15.jpg"></a></li>
+							    <li ><a href="page2.html"><img src="${pageContext.request.contextPath}/images/16.jpg"></a></li>
+							   </ul>   
+					</div>			
+				</div>
+                <div id="rightside">
+					  <form  action="${pageContext.request.contextPath}/loginServlet" method="post" >
+					 <br /><br />
+					 
+                     
+                         <h2 style="color:#99CC66">Login Form</h2>
+					     <br /><br />
+
+					     Username:&nbsp; <input type="text" name="name" />
+                         <br><br>
+					     Password:&nbsp; <input type="password" name="pass"  />
+					     <br/><br/>
+					     <input type="submit" name="login"  value="Sign In" style="width: 75px; margin-left: 111px" />
+                         <br /><br />
+                     
+					 </form>
+					 
+					 
+				</div> 
+				
+            </div> <!-- end of content_area1-->
+    
+			<div id="footer">    
+				Copyright © 2014 <strong>eExhibition</strong>
+			</div> <!-- end of footer -->
+    
+		</div> <!-- end of container -->
+     </body><!--end of body-->
+</html><!--end of html-->
+
+			
+							
+
+
+
+ 
